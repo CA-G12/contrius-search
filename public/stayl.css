@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    width: 30%;
+    height: 70px;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 40px;
+}
+.card-section {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card{
+    width: 30%;
+    height: 25rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+.image-container{
+    width: 100%;
+    height: 5rem;
+}

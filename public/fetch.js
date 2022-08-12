@@ -2,7 +2,7 @@ const postData = (url, cb, input) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.status === 200 && xhr.readyState === 4) {
-      const dataConvert = JSON.parse(xhr.responseText);
+      const dataConvert = xhr.responseText;
       cb(dataConvert);
     }
   };

@@ -100,22 +100,22 @@ const router = (req, res) => {
       res.end();
     });
   }
-//  else if (endpoint === '/gitPosts') {
-//     const filePath = path.join(__dirname, 'data.json');
+ else if (endpoint === '/gitPosts') {
+    const filePath = path.join(__dirname, 'data.json');
 
-//     // eslint-disable-next-line consistent-return
-//     fs.readFile(filePath, (err, data) => {
-//       if (err) {
-//         res.writeHead(500, { 'Content-Type': 'text/html' });
-//         res.write('Server Error');
-//         res.end();
-//         return '';
-//       }
-//       res.writeHead(200, { 'Content-Type': 'application/json' });
-//       res.write(data);
-//       res.end();
-//     });
-//   }
+    // eslint-disable-next-line consistent-return
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.write('Server Error');
+        res.end();
+        return '';
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.write(data);
+      res.end();
+    });
+  }
  else {
     res.writeHead(500, { 'Content-Type': 'text/html' });
     res.write('server Error');

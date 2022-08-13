@@ -7,7 +7,8 @@ const outComplet = (data) => {
     li.textContent = ele;
     ul.appendChild(li);
     li.addEventListener('click',(e)=>{
-        input.value=li.textContent
+      input.value = li.textContent
+      fetch('/gitPosts', filteCard);  
     })
   });
 };
@@ -33,10 +34,36 @@ const posts=(data)=>{
     cardName.textContent = el.name.common;
     img.src = el.flags.png;
   })
-  }
+}
+const filteCard = (data) => {
+  cardSection.textContent = ''
+  console.log(data, 88)
+  const filterData = data.filter(el => {
+    const lower = el.name.common.toLowerCase()
+    console.log(el.name.common , input.value)
+    return lower.includes(input.value)
+  })
+  console.log(filterData)
+    filterData.forEach((el) => {
+      const div = document.createElement('div');
+      const divImg = document.createElement('div');
+      const descrptionCard = document.createElement('div');
+      const img = document.createElement('img');
+      const cardName = document.createElement('h1')
+      div.appendChild(divImg)
+      div.appendChild(descrptionCard)
+      divImg.appendChild(img);
+      descrptionCard.appendChild(cardName)
+      cardSection.appendChild(div)
+      console.log(el);
+      cardName.textContent = el.name.common;
+      img.src = el.flags.png;
+
+    })
+}
   input.addEventListener('keyup', (e) => {
   ul.textContent = '';
   postData('/create-post', (data) => console.log(data), input.value);
   fetch('/gitOutCom', outComplet);
-});
+  });
 fetch('/gitPosts', posts);

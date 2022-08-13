@@ -63,14 +63,13 @@ const router = (req, res) => {
       res.write(data);
       res.end();
     });
-  } else if (endpoint === '/create-post'    ) {
-    const filePath = path.join(__dirname,  "country-name.json");
+  } else if (endpoint === '/create-post') {
+    const filePath = path.join(__dirname, 'country-name.json');
     let allData = '';
     req.on('data', (chunk) => {
       allData += chunk;
     });
     req.on('end', () => {
-        console.log(allData)
       fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
           res.writeHead(500);
@@ -99,8 +98,7 @@ const router = (req, res) => {
       res.write(data);
       res.end();
     });
-  }
- else if (endpoint === '/gitPosts') {
+  } else if (endpoint === '/gitPosts') {
     const filePath = path.join(__dirname, 'data.json');
 
     // eslint-disable-next-line consistent-return
@@ -115,8 +113,7 @@ const router = (req, res) => {
       res.write(data);
       res.end();
     });
-  }
- else {
+  } else {
     res.writeHead(500, { 'Content-Type': 'text/html' });
     res.write('server Error');
     res.end();

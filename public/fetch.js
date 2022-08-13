@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const postData = (url, cb, input) => {
+const postData = (url, input) => {
   const xhr = new XMLHttpRequest();
   xhr.open('POST', url);
   xhr.send(input);
